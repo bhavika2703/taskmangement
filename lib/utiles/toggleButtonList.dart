@@ -68,12 +68,12 @@ class _ToggleButtonListState extends State<ToggleButtonList> {
               child: Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  // color: Colors.orange,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
                   Icons.filter_list,
-                  color: Colors.white,
+                  color: Colors.orange,
                   size: 20,
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utiles/custom _bottom_navigationbar.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -132,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return HomeScreen();
+                                return CustomBottomNavScreen();
                               },
                             ),
                           );

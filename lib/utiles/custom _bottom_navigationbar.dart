@@ -101,10 +101,10 @@ class _CustomBottomNavScreenState extends State<CustomBottomNavScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CircleAvatar(
+          /* CircleAvatar(
             radius: 14,
             backgroundImage: AssetImage("assets/images/profile.jpg"),
-          ),
+          ),*/
           const SizedBox(height: 4),
           Text(
             "Profile",

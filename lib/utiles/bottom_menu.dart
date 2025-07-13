@@ -51,10 +51,7 @@ class _FloatingMenuExampleState extends State<FloatingMenuExample>
       backgroundColor: const Color(0xFFFDFDFD),
       body: Stack(
         children: [
-          // Main content
           const Center(child: Text("Home Page")),
-
-          // Floating button stack
           Positioned(
             right: 20,
             bottom: 90,
@@ -97,11 +94,48 @@ class _FloatingMenuExampleState extends State<FloatingMenuExample>
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
+              hintText: "eg : Meeting with client",
+              border: InputBorder.none,
+              hintStyle: TextStyle(color: Colors.grey),
+            ),
+          ),
+          const TextField(
+            decoration: InputDecoration(
+              hintText: "Description",
+              border: InputBorder.none,
+              hintStyle: TextStyle(color: Colors.grey),
+            ),
+            maxLines: 2,
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: const [
+              Icon(Icons.calendar_today, color: Colors.grey),
+              SizedBox(width: 16),
+              Icon(Icons.access_time, color: Colors.grey),
+              SizedBox(width: 16),
+              Icon(Icons.flag, color: Colors.grey),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: CircleAvatar(
+              backgroundColor: Colors.orange,
+              radius: 20,
+              child: IconButton(
+                icon: const Icon(Icons.send, color: Colors.white, size: 20),
+                onPressed: () {
+                  Navigator.pop(context); // Save and close
+                },
+              ),
+            ),
+          ),
         ],
       ),
-
-      // Optional: standard FAB placeholder
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
