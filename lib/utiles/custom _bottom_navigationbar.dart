@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../ui/calendar_screen.dart';
 import '../ui/home_screen.dart';
+import '../ui/notification_screen.dart';
+import '../ui/profile_screen.dart';
 
 class CustomBottomNavScreen extends StatefulWidget {
   const CustomBottomNavScreen({super.key});
@@ -25,9 +28,9 @@ class _CustomBottomNavScreenState extends State<CustomBottomNavScreen> {
   ];
   final List<Widget> screens = [
     HomeScreen(),
-    Center(child: Text("Notification Screen")),
-    Center(child: Text("Calendar Screen")),
-    Center(child: Text("Profile Screen")),
+    NotificationScreen(),
+    CalendarScreen(),
+    ProfileScreen(),
   ];
 
   @override
@@ -101,10 +104,11 @@ class _CustomBottomNavScreenState extends State<CustomBottomNavScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          /* CircleAvatar(
+          CircleAvatar(
             radius: 14,
-            backgroundImage: AssetImage("assets/images/profile.jpg"),
-          ),*/
+            child: Icon(Icons.person),
+            // backgroundImage: AssetImage("assets/images/profile.jpg"),
+          ),
           const SizedBox(height: 4),
           Text(
             "Profile",

@@ -123,7 +123,22 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
                   ),
 
                   SizedBox(width: 16),
-                  Icon(Icons.flag, color: Colors.grey),
+                  IconButton(
+                    onPressed: () {
+                      showPreviewDialog(
+                        context: context,
+                        title: "Interview with Alex",
+                        description:
+                            "Plan questions, capture insights, and document key takeaways.",
+                        priority: "High",
+                        priorityIcon: Icons.warning,
+                        priorityColor: Colors.orange,
+                        dueDate: "18 Apr 2024",
+                        time: "10:30 AM",
+                      );
+                    },
+                    icon: Icon(Icons.flag, color: Colors.grey),
+                  ),
                 ],
               ),
             ),
@@ -446,6 +461,127 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
           },
         );
       },
+    );
+  }
+
+  void showPreviewDialog({
+    required BuildContext context,
+    required String title,
+    required String description,
+    required String priority,
+    required IconData priorityIcon,
+    required Color priorityColor,
+    required String dueDate,
+    required String time,
+  }) {
+    showDialog(
+      context: context,
+      builder: (_) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        backgroundColor: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.assignment, size: 40, color: Colors.black),
+              const SizedBox(height: 10),
+              const Text(
+                "Preview",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                description,
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
+                textAlign: TextAlign.center,
+              ),
+              const Divider(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(Icons.flag, size: 20, color: Colors.grey),
+                  const Text("Priority"),
+                  Row(
+                    children: [
+                      Icon(priorityIcon, color: priorityColor, size: 18),
+                      const SizedBox(width: 6),
+                      Text(priority, style: TextStyle(color: priorityColor)),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(
+                    Icons.calendar_today,
+                    size: 20,
+                    color: Colors.grey,
+                  ),
+                  const Text("Due Date"),
+                  Text(dueDate, style: const TextStyle(color: Colors.black)),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(Icons.access_time, size: 20, color: Colors.grey),
+                  const Text("Time"),
+                  Text(time, style: const TextStyle(color: Colors.black)),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () {
+                        Navigator.pop(context); // Close the dialog
+                      },
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        side: const BorderSide(color: Colors.grey),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text("Back"),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Save action
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text("Save"),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
